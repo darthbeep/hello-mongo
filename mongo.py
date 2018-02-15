@@ -10,9 +10,12 @@ def find_borough(b):
     return collection.find({'borough':b})
 
 def find_zip(z):
-    return collection.find({'address':{'zipcode':z}})
+    return collection.find({'address.zipcode':z})
 
-for thing in find_zip('11218'):
+def find_borough_zip(b, z):
+    return collection.find({'borough':b, 'name':'Subway'})
+
+for thing in find_zip('11215'):
     print thing
 #for thing in db:
 #    print thing
