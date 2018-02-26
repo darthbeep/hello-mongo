@@ -24,21 +24,23 @@ else:
     print "Already imported"
 
 #gets all the data you can get about astroids
-def find_orbit_class(name):
-    return collection.find({'orbit_class':name})
+def find_name(name):
+    return collection.find({'name':name})
 
-def smaller_period_year(year):
-    return collection.find({"period_yr":{"$lt": year }})
+def smaller_reclat(year):
+    return collection.find({"reclat":{"$lt": year }})
 
 
-def find_h_mag(value):
-    return collection.find({"h_mag":value})
+def find_fall(value):
+    return collection.find({"fall":value})
 
 
 def special(name, year, value):
-    return collection.find({'$and': [{"orbit_class": name}, {"period_yr": year}, {"h_mag": value}]})
+    return collection.find({'$and': [{"name": name}, {"nametype": year}, {"recclass": value}]})
 
 #and test
+
+'''
 for thing in find_orbit_class("Apollo"):
     print thing
     print "Printed all values in this orbit class."
@@ -55,3 +57,4 @@ for thing in find_h_mag("21.2"):
 for thing in special("Apollo", "1.39", "20.9"):
     print thing
     print "Printed specific astroid"
+'''
