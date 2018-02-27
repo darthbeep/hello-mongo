@@ -39,7 +39,8 @@ def special(name, year, value):
     return collection.find({'$and': [{"name": name}, {"nametype": year}, {"recclass": value}]})
 
 #and test
-
+for thing in find_name("Aachen"):
+    print thing
 '''
 for thing in find_orbit_class("Apollo"):
     print thing
